@@ -27,7 +27,7 @@ namespace YoutubeDotNet.Controllers
         //POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create()
+        public IActionResult Create(Category obj)
         {
             return View();
         }
