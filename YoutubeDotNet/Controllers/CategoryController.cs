@@ -29,7 +29,17 @@ namespace YoutubeDotNet.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Category obj)
         {
-            return View();
+            if(obj.DisplayOrder == 0) {
+                ModelState.AddModelError("Custom Error", "Display order cannot be 0");
+            }
+            if (ModelState.IsValid)
+            {
+                _db.categories.Add(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(obj);
+            
         }
     }
 }
