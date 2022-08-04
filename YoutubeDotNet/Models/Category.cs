@@ -10,7 +10,7 @@ namespace YoutubeDotNet.Models
         [Required]
         public string Name { get; set; }
         [DisplayName("Display Order")]
-        [Range(1,100)]
+        [Range(1,100, ErrorMessage ="Display order can be only between 1 to 100")]
         public int DisplayOrder { get; set; }
         public DateTime CreatedTime { get; set; } = DateTime.Now;
     }
